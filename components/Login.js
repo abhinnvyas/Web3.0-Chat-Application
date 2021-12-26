@@ -1,10 +1,14 @@
 import Image from "next/image";
+import { useMoralis } from "react-moralis";
 
 function Login() {
+  const { authenticate } = useMoralis();
+
   return (
     <div className="bg-black relative text-black">
-      <div className="flex absolute z-50 items-center justify-center h-3/4 w-full">
+      <div className="flex absolute z-50 items-center justify-center h-3/4 w-full ">
         <button
+          onClick={authenticate}
           className="bg-yellow-500 hover:bg-yellow-400 p-5 rounded-full font-bold shadow-lg hover:scale-105
         transtion transform duration-200 ease-in-out active:scale-95 hover:shadow-xl active:shadow-2xl"
         >
