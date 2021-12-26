@@ -1,8 +1,24 @@
 import Image from "next/image";
 import { useMoralis } from "react-moralis";
+import ReactLoading from "react-loading";
 
 function Login() {
-  const { authenticate } = useMoralis();
+  const { authenticate, isAuthenticating } = useMoralis();
+
+  if (isAuthenticating)
+    return (
+      <div className="w-full h-screen bg-black text-white">
+        <div className="bg-transparent flex flex-col space-y-5 absolute items-center justify-center w-full h-3/4">
+          <ReactLoading
+            type="spinningBubbles"
+            color="red"
+            height={80}
+            width={80}
+          />
+          <h1 className="font-bold">Just a Moment.</h1>
+        </div>
+      </div>
+    );
 
   return (
     <div className="bg-black relative text-black">
