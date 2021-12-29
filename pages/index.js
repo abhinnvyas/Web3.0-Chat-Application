@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Login from "../components/Login";
 import { useMoralis } from "react-moralis";
+import Header from "../components/Header";
 
 export default function Home() {
   const { isAuthenticated, logout } = useMoralis();
@@ -8,13 +9,20 @@ export default function Home() {
   if (!isAuthenticated) return <Login />;
 
   return (
-    <div className="h-screen">
+    <div
+      className="h-screen overflow-y-scroll bg-gradient-to-b 
+    from-black to-fuchsia-800 overflow-hidden"
+    >
       <Head>
         <title>Web3 Chat Application</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Welcome to the Application!</h1>
+      <div className="max-w-screen-2xl mx-auto">
+        <Header />
+        {/* Messages */}
+        {/* Footer */}
+      </div>
 
       <button onClick={logout}>Logout</button>
     </div>
