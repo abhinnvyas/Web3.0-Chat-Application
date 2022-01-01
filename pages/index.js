@@ -23,8 +23,6 @@ export default function Home() {
         {/* Messages */}
         {/* Footer */}
       </div>
-
-      <button onClick={logout}>Logout</button>
     </div>
   );
 }
