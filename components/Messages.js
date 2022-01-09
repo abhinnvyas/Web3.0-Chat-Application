@@ -1,6 +1,6 @@
 import { ByMoralis, useMoralis, useMoralisQuery } from "react-moralis";
 import SendMessage from "./SendMessage";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Message from "./Message";
 
 // only show messages from the last 15 mins
@@ -23,9 +23,9 @@ function Messages() {
     }
   );
 
-  // console.log(new Date(Date.now() - 1000 * 60 * MINS_DURATION));
-  console.log(data);
-  console.log(new Date(Date.now() - 1000 * 60 * MINS_DURATION).toUTCString());
+  useEffect(() => {
+    endOfMessagesRef.current.scrollIntoView({ behavior: "smooth" });
+  }, [data]);
 
   return (
     <div className="pb-56">
